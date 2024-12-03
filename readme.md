@@ -28,8 +28,8 @@ cd Pengolahan-Citra-Digital
 ### 2. Set up a virtual environment
 It's recommended to use a virtual environment to avoid dependency conflicts:
 ```bash
-python -m venv env
-source env/bin/activate   # On Windows: env\Scripts\activate
+python -m venv venv
+source venv/bin/activate   # On Windows: venv\Scripts\activate
 ```
 
 ### 3. Install dependencies
