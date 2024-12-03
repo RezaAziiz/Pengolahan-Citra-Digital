@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Player</title>
+    <script src="https://cdn.jsdelivr.net/npm/video.js/dist/video.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/video.js/dist/video-js.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-br from-gray-200 via-blue-50 to-gray-200 min-h-screen flex flex-col">
+    <!-- Header -->
+    <header class="bg-blue-600 text-white py-4 shadow-md">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-2xl font-bold">My Video Platform</h1>
+            <nav class="space-x-4">
+                <a href="#" class="hover:underline">Home</a>
+                <a href="#" class="hover:underline">Categories</a>
+                <a href="#" class="hover:underline">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container mx-auto py-8 flex flex-col lg:flex-row">
+        <!-- Sidebar -->
+        <aside class="lg:w-1/4 bg-white shadow-md rounded-lg p-4 mb-8 lg:mb-0">
+            <h2 class="text-lg font-bold mb-4">Now Playing</h2>
+            <div class="mb-6">
+                <img
+                    src="https://picsum.photos/300/200?random=1"
+                    alt="Now Playing Thumbnail"
+                    class="w-full h-32 object-cover rounded-md mb-2"
+                />
+                <h3 id="video-title" class="text-blue-600 font-semibold text-center">Disney's Oceans</h3>
+            </div>
+
+            <!-- Additional Info -->
+            <div class="mb-6">
+                <h2 class="text-lg font-bold mb-4">Video Info</h2>
+                <p class="text-sm text-gray-600">
+                    Explore stunning underwater visuals and learn about marine life in Disney's Oceans.
+                </p>
+            </div>
+
+            <h2 class="text-lg font-bold mb-4">Up Next</h2>
+            <ul class="space-y-4">
+                {% for video in videos[1:] %}
+                <li>
+                    <button
+                        onclick="changeVideo('{{ video.url }}', '{{ video.title }}', 'https://picsum.photos/300/200?random={{ loop.index + 1 }}')"
+                        class="w-full text-left focus:outline-none"
+                    >
+                        <div class="flex items-center space-x-4">
+                            <img
+                                src="https://picsum.photos/300/200?random={{ loop.index + 1 }}"
+                                alt="{{ video.title }} Thumbnail"
+                                class="w-16 h-16 object-cover rounded-md"
+                            />
+                            <div>
+                                <h4 class="text-sm font-semibold text-gray-700">{{ video.title }}</h4>
+                            </div>
+                        </div>
+                    </button>
+                </li>
+                {% endfor %}
+            </ul>
+        </aside>
+
+        <!-- Video Player -->
+        <main class="lg:w-3/4 ml-0 lg:ml-6">
+            <div class="bg-black rounded-lg overflow-hidden shadow-lg">
+                <video
+                    id="video-player"
+                    class="video-js vjs-default-skin w-full h-[500px]"
+                    controls
+                    preload="auto"
+                >
+                    <source src="{{ videos[0].url }}" type="video/mp4">
+                </video>
+            </div>
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-blue-600 text-white py-4 mt-auto">
+        <div class="container mx-auto text-center text-sm">
+            &copy; 2024 My Video Platform. All rights reserved.
+        </div>
+    </footer>
+
+    <script>
+        // Function to change video dynamically
+        function changeVideo(url, title, thumbnail) {
+            const player = document.getElementById('video-player');
+            const source = player.querySelector('source');
+            source.src = url;
+            player.load();
+            document.getElementById('video-title').textContent = title;
+
+            // Update thumbnail in "Now Playing"
+            const nowPlayingThumbnail = document.querySelector("img[alt='Now Playing Thumbnail']");
+            nowPlayingThumbnail.src = thumbnail;
+        }
+    </script>
+</body>
+</html>
