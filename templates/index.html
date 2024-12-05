@@ -8,19 +8,19 @@
     <link href="https://cdn.jsdelivr.net/npm/video.js/dist/video-js.css" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gradient-to-br from-gray-200 via-blue-50 to-gray-200 min-h-screen flex flex-col">
+<body class="flex flex-col min-h-screen bg-gradient-to-br from-gray-200 via-blue-50 to-gray-200">
     <!-- Header -->
     <header class="bg-gradient-to-r from-[#984D38] to-[#181E41] text-white py-4 shadow-md">
-        <div class="container mx-auto flex justify-between pr-4 items-center">
+        <div class="container flex items-center justify-between pr-4 mx-auto">
             <!-- Bagian tengah dengan teks dan ikon -->
-            <div class="flex items-center space-x-2 mx-auto">
+            <div class="flex items-center mx-auto space-x-2">
                 <!-- Ikon -->
-                <img src="https://cdn-icons-png.flaticon.com/512/8094/8094172.png" alt="Logo" class="h-6 w-6">
+                <img src="https://cdn-icons-png.flaticon.com/512/8094/8094172.png" alt="Logo" class="w-6 h-6">
                 <!-- Teks -->
                 <h1 class="text-2xl font-bold">My Video Platform</h1>
             </div>
             <!-- Navigation -->
-            <nav class="space-x-4 pr-5">
+            <nav class="pr-5 space-x-4">
                 <a href="#" class="hover:underline">Home</a>
                 <a href="#" class="hover:underline">Categories</a>
                 <a href="#" class="hover:underline">Contact</a>
@@ -34,25 +34,25 @@
     <!-- Sidebar -->
     <aside class="lg:w-1/4 bg-gradient-to-r from-[#984D38] to-[#181E41] shadow-xl rounded-lg p-4 mb-8 lg:mb-0">
 
-        <h2 class="text-lg font-bold mb-4 text-white">Now Playing</h2>
+        <h2 class="mb-4 text-lg font-bold text-white">Now Playing</h2>
         <div class="mb-6">
             <img
                 src="https://picsum.photos/300/200?random=1"
                 alt="Now Playing Thumbnail"
-                class="w-full h-32 object-cover rounded-md mb-2"
+                class="object-cover w-full h-32 mb-2 rounded-md"
             />
             <h3 id="video-title" class="font-semibold text-center text-white">Disney's Oceans</h3>
         </div>
 
         <!-- Additional Info -->
         <div class="mb-6">
-            <h2 class="text-lg font-bold mb-4 text-white">Video Info</h2>
+            <h2 class="mb-4 text-lg font-bold text-white">Video Info</h2>
             <p class="text-sm text-white">
                 Explore stunning underwater visuals and learn about marine life in Disney's Oceans.
             </p>
         </div>
 
-        <h2 class="text-lg font-bold mb-4 text-white">Up Next</h2>
+        <h2 class="mb-4 text-lg font-bold text-white">Up Next</h2>
         <ul class="space-y-4">
             {% for video in videos[1:] %}
             <li>
@@ -64,7 +64,7 @@
                         <img
                             src="https://picsum.photos/300/200?random={{ loop.index + 1 }}"
                             alt="{{ video.title }} Thumbnail"
-                            class="w-16 h-16 object-cover rounded-md"
+                            class="object-cover w-16 h-16 rounded-md"
                         />
                         <div>
                             <h4 class="text-sm font-semibold text-white">{{ video.title }}</h4>
@@ -78,7 +78,7 @@
 
 
         <!-- Video Player -->
-        <main class="lg:w-3/4 ml-0 lg:ml-6">
+        <main class="ml-0 lg:w-3/4 lg:ml-6">
             <div class="bg-gradient-to-r from-[#984D38] to-[#181E41] shadow-xl rounded-lg overflow-hidden">
                 <video
                     id="video-player"
@@ -94,23 +94,58 @@
 
     <!-- Footer -->
     <footer class="bg-gradient-to-r from-[#984D38] to-[#181E41] text-white py-4 mt-auto">
-        <div class="container mx-auto text-center text-sm">
+        <div class="container mx-auto text-sm text-center">
             &copy; 2024 My Video Platform. All rights reserved.
         </div>
     </footer>
     <script>
-        // Function to change video dynamically
-        function changeVideo(url, title, thumbnail) {
+        document.addEventListener('keydown', function(event) {
             const player = document.getElementById('video-player');
-            const source = player.querySelector('source');
-            source.src = url;
-            player.load();
-            document.getElementById('video-title').textContent = title;
-
-            // Update thumbnail in "Now Playing"
-            const nowPlayingThumbnail = document.querySelector("img[alt='Now Playing Thumbnail']");
-            nowPlayingThumbnail.src = thumbnail;
-        }
+            const video = player;
+    
+            // Play/Pause video
+            if (event.code === 'Space') {
+                event.preventDefault(); // Menghindari scroll halaman
+                if (video.paused) {
+                    video.play();
+                } else {
+                    video.pause();
+                }
+            }
+    
+            // Mundur 10 detik
+            if (event.code === 'ArrowLeft') {
+                event.preventDefault();
+                video.currentTime -= 10;
+            }
+    
+            // Maju 10 detik
+            if (event.code === 'ArrowRight') {
+                event.preventDefault();
+                video.currentTime += 10;
+            }
+    
+            // Mute/Unmute video
+            if (event.code === 'KeyM') {
+                video.muted = !video.muted;
+            }
+    
+            // Masuk/keluar layar penuh
+            if (event.code === 'KeyF') {
+                if (document.fullscreenElement) {
+                    document.exitFullscreen();
+                } else {
+                    video.requestFullscreen();
+                }
+            }
+    
+            // Keluar layar penuh dengan Esc
+            if (event.code === 'Escape') {
+                if (document.fullscreenElement) {
+                    document.exitFullscreen();
+                }
+            }
+        });
     </script>
 </body>
 </html>
