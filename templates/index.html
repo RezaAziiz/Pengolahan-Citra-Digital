@@ -103,48 +103,62 @@
             const player = document.getElementById('video-player');
             const video = player;
     
-            // Play/Pause video
-            if (event.code === 'Space') {
-                event.preventDefault(); // Menghindari scroll halaman
-                if (video.paused) {
-                    video.play();
-                } else {
-                    video.pause();
-                }
-            }
-    
-            // Mundur 10 detik
-            if (event.code === 'ArrowLeft') {
-                event.preventDefault();
-                video.currentTime -= 10;
-            }
-    
-            // Maju 10 detik
-            if (event.code === 'ArrowRight') {
-                event.preventDefault();
-                video.currentTime += 10;
-            }
-    
-            // Mute/Unmute video
-            if (event.code === 'KeyM') {
-                video.muted = !video.muted;
-            }
-    
-            // Masuk/keluar layar penuh
-            if (event.code === 'KeyF') {
-                if (document.fullscreenElement) {
-                    document.exitFullscreen();
-                } else {
-                    video.requestFullscreen();
-                }
-            }
-    
-            // Keluar layar penuh dengan Esc
-            if (event.code === 'Escape') {
-                if (document.fullscreenElement) {
-                    document.exitFullscreen();
-                }
-            }
+            
+// Play/Pause video
+if (event.code === 'Space') {
+    event.preventDefault(); // Menghindari scroll halaman
+    if (video.paused) {
+        video.play();
+    } else {
+        video.pause();
+    }
+}
+
+// Mundur 10 detik
+if (event.code === 'ArrowLeft') {
+    event.preventDefault();
+    video.currentTime -= 10;
+}
+
+// Maju 10 detik
+if (event.code === 'ArrowRight') {
+    event.preventDefault();
+    video.currentTime += 10;
+}
+
+// Mute/Unmute video
+if (event.code === 'KeyM') {
+    video.muted = !video.muted;
+}
+
+// Masuk/keluar layar penuh
+if (event.code === 'KeyF') {
+    if (document.fullscreenElement) {
+        document.exitFullscreen();
+    } else {
+        video.requestFullscreen();
+    }
+}
+
+// Keluar layar penuh dengan Esc
+if (event.code === 'Escape') {
+    if (document.fullscreenElement) {
+        document.exitFullscreen();
+    }
+}
+
+// Increase volume by 10%
+if (event.code === 'ArrowUp') {
+    event.preventDefault();
+    video.volume = Math.min(video.volume + 0.1, 1); // Ensure volume doesn't exceed 100%
+}
+
+// Decrease volume by 10%
+if (event.code === 'ArrowDown') {
+    event.preventDefault();
+    video.volume = Math.max(video.volume - 0.1, 0); // Ensure volume doesn't go below 0%
+}
+
         });
     </script>
 </body>
