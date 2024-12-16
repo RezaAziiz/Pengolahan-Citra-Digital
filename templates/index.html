@@ -46,6 +46,8 @@
         </aside>
 
         <!-- Video Player -->
+        <button id="fullscreen-button" class="hidden">Go Fullscreen</button>
+
         <main class="ml-0 lg:w-3/4 lg:ml-6">
             <div class="bg-gradient-to-r from-[#984D38] to-[#181E41] shadow-xl rounded-lg overflow-hidden">
                 <video
@@ -77,7 +79,7 @@
             { "title": "The_lost_soul", "url": "/videos/The_lost_soul.mp4", "thumbnail": "https://picsum.photos/300/200?random=5", "video_info": "video 5" }
         ];
         let currentVideoIndex = 0;
-
+      
         // Load video function
         function loadVideo(index) {
             const video = videos[index];
@@ -109,12 +111,9 @@
                 videoList.appendChild(listItem);
             });
         }
+        loadVideo(currentVideoIndex); 
+        renderVideoList(); 
 
-        // Initialize the video player
-        loadVideo(currentVideoIndex); // Load the first video
-        renderVideoList(); // Render the video list in sidebar
-
-        // Keyboard shortcuts for video navigation
         document.addEventListener('keydown', function(event) {
             const player = document.getElementById('video-player');
     
@@ -136,17 +135,10 @@
                 event.preventDefault();
                 player.currentTime += 10;
             }
+            
     
             if (event.code === 'KeyM') {
                 player.muted = !player.muted;
-            }
-    
-            if (event.code === 'KeyF') {
-                if (document.fullscreenElement) {
-                    document.exitFullscreen();
-                } else {
-                    player.requestFullscreen();
-                }
             }
 
             if (event.code === 'KeyN') {
