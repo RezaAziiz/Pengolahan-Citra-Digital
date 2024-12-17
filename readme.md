@@ -80,8 +80,12 @@ http://127.0.0.1:8000
 After that, open the program
 ```python
 python .\handsControl.py
-```
+``` 
 
+Then website and webcam gonna open. 
+
+## IMPORTANT
+After website appear, please click the content in website and after that you can use the program 
 ---
 ## Folder Structure
 ```
@@ -100,7 +104,7 @@ Pengolahan-Citra-Digital/
 ## Demo & Documentation
 
 - **Journal Link**: [Click here to access the journal](https://drive.google.com/file/d/10pGic2PxJHp-ZC7FHzxsLUd0dUeIcnLR/view?usp=sharing) <!-- Replace # with the actual journal link -->
-- **Live Demo**: [Watch the demo here](#) <!-- Replace # with the actual demo link -->
+- **Live Demo**: [Watch the demo here](https://youtu.be/FEXXOp4Cw4w) <!-- Replace # with the actual demo link -->
 
 ---
 
