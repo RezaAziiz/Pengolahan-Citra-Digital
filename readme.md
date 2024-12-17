@@ -1,20 +1,29 @@
-# Video Streaming and Player Web Application
+# Web Video Player Control Using Hand Gesture Recognition (MediaPipe)
 
-A simple web application built with FastAPI for video streaming and video player functionality. The project uses Jinja2 templates for rendering dynamic content and OpenCV for image processing.
+This project implements a real-time hand gesture recognition system to control a web video player. Using **MediaPipe** and **OpenCV**, users can interact with video playback functionalities like play, pause, volume adjustment, and video navigation through intuitive hand gestures. 
+
+The system promotes a **touchless experience** and is particularly useful in scenarios where physical interaction with devices is limited.
+
+---
 
 ## Features
-- Video player with dynamic content.
-- Video thumbnail rendering using OpenCV.
-- Modern responsive design using Tailwind CSS.
-- Built-in video switching functionality.
+
+- **Real-time Gesture Recognition**: Control video player using predefined hand gestures.
+- **Touchless Video Player Control**: Play, pause, adjust volume, or switch videos without physical contact.
+- **MediaPipe Integration**: Use MediaPipe for accurate hand gesture detection and tracking.
+- **Web-Based Video Player**: Developed using **HTML5** and **JavaScript** for dynamic and responsive video control.
 
 ---
 
 ## Requirements
-Make sure you have the following installed:
+
+Ensure you have the following installed:
 - Python 3.7 or higher
-- `pip` (Python package manager)
-- Laptop with webcam / camera
+- `pip` (Python Package Manager)
+- OpenCV
+- MediaPipe
+- Web Browser (Google Chrome recommended)
+- Webcam / Camera for gesture input
 
 ---
 
@@ -22,8 +31,8 @@ Make sure you have the following installed:
 
 ### 1. Clone the repository
 ```bash
-git clone https://github.com/RezaAziiz/Pengolahan-Citra-Digital.git
-cd Pengolahan-Citra-Digital
+git clone https://github.com/RezaAziiz/hand-gesture-video-player.git
+cd hand-gesture-video-player
 ```
 
 ### 2. Set up a virtual environment
@@ -85,3 +94,20 @@ Pengolahan-Citra-Digital/
 └── README.md
 └── Videos
 ```
+
+---
+
+## Demo & Documentation
+
+- **Journal Link**: [Click here to access the journal](https://drive.google.com/file/d/10pGic2PxJHp-ZC7FHzxsLUd0dUeIcnLR/view?usp=sharing) <!-- Replace # with the actual journal link -->
+- **Live Demo**: [Watch the demo here](#) <!-- Replace # with the actual demo link -->
+
+---
+
+## Contributors
+
+- **Mahardika Pratama** (221524044)
+- **Mochamad Fathur Rabbani** (221524045)
+- **Reza Maulana Aziiz** (221524057)
+
+---
