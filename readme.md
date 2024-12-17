@@ -14,6 +14,7 @@ A simple web application built with FastAPI for video streaming and video player
 Make sure you have the following installed:
 - Python 3.7 or higher
 - `pip` (Python package manager)
+- Laptop with webcam / camera
 
 ---
 
@@ -67,10 +68,12 @@ Open your browser and go to:
 http://127.0.0.1:8000
 ```
 
-After that, 
+After that, open the program
+```python
+python .\handsControl.py
+```
 
 ---
-
 ## Folder Structure
 ```
 Pengolahan-Citra-Digital/
