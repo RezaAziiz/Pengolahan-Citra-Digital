@@ -57,12 +57,13 @@ And put in videos folder
 
 Or if you want to change the videos, please change the program in index.html : 
 ```
- const videos = [
-            { "title": "9 mm_go_bang", "url": "/videos/9 mm_go_bang.mp4", "thumbnail": "https://picsum.photos/300/200?random=1", "video_info": "video 1" },
-            { "title": "biasphemous", "url": "/videos/blasphemous.mp4", "thumbnail": "https://picsum.photos/300/200?random=2", "video_info": "video 2" },
-            { "title": "fate", "url": "/videos/fate.mp4", "thumbnail": "https://picsum.photos/300/200?random=3", "video_info": "video 3" },
-            { "title": "fate2", "url": "/videos/fate2.mp4", "thumbnail": "https://picsum.photos/300/200?random=4", "video_info": "video 4" },
-            { "title": "The_lost_soul", "url": "/videos/The_lost_soul.mp4", "thumbnail": "https://picsum.photos/300/200?random=5", "video_info": "video 5" }
+const videos = [
+            { "title": "Manuk Dadali 1", "url": "/videos/Manuk Dadali 1.mp4", "thumbnail": "https://picsum.photos/300/200?random=1", "video_info": "video 1" },
+            { "title": "Manuk Dadali 2", "url": "/videos/Manuk Dadali 2.mp4", "thumbnail": "https://picsum.photos/300/200?random=2", "video_info": "video 2" },
+            { "title": "Manuk Dadali 3", "url": "/videos/Manuk Dadali 3.mp4", "thumbnail": "https://picsum.photos/300/200?random=3", "video_info": "video 3" },
+            { "title": "Cendol Dawet 1", "url": "/videos/Cendol Dawet 1.mp4", "thumbnail": "https://picsum.photos/300/200?random=1", "video_info": "video 4" },
+            { "title": "Cendol Dawet 2", "url": "/videos/Cendol Dawet 2.mp4", "thumbnail": "https://picsum.photos/300/200?random=2", "video_info": "video 5" },
+            { "title": "Cendol Dawet 3", "url": "/videos/Cendol Dawet 3.mp4", "thumbnail": "https://picsum.photos/300/200?random=3", "video_info": "video 6" },
         ];
 ```
 
